@@ -2,21 +2,26 @@ import { EngineeringBanner } from "@/components/bara-engineering/engineering-ban
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Grid } from "@/components/ui/grid-with-pattern";
+import { getBaralEngineeringPage } from "@/lib/queries";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import Markdown from "react-markdown";
 
-const BaralEngineering = () => {
+const BaralEngineering = async () => {
+  const data = await getBaralEngineeringPage();
+  if (!data) return notFound();
   return (
     <div className="pb-10">
-      <EngineeringBanner />
+      <EngineeringBanner title={data.data.banner_title} />
       <Container className="py-20 space-y-36">
         <div className="w-full bg-gradient-to-b from-indigo-950 to-black/80 p-8 relative overflow-hidden rounded-xl">
           <div className="max-w-6xl mx-auto flex items-center justify-between relative">
             <div className="flex-1 space-y-4">
               <h2 className="text-4xl font-bold tracking-tight text-white">
-                Prevent costly mistakes
+                {data.data.sub_banner.title}
               </h2>
               <p className="text-neutral-600 text-lg">
-                Create pre-approved templates and lock all legal information.
+                {data.data.sub_banner.subtitle}
               </p>
               <a
                 href={`tel:9800000000`}
@@ -26,7 +31,7 @@ const BaralEngineering = () => {
                     "border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors animate-shimmer border focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
                 })}
               >
-                Let&apos;s connect
+                {data.data.sub_banner.button_text}
                 <svg
                   className="ml-2 w-4 h-4"
                   viewBox="0 0 24 24"
@@ -62,14 +67,16 @@ const BaralEngineering = () => {
           </div>
         </div>
         <div className="space-y-6">
-          <h3 className="text-5xl font-semibold">Our Top Facilities</h3>
+          <h3 className="text-5xl font-semibold">
+            {data.data.facilities.title}
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-6">
-            {grid.map((feature, i) => (
+            {data.data.facilities.our_facilities.map((feature, i) => (
               <div
                 data-aos="fade-up"
                 data-aos-delay={i * 100}
                 data-aos-anchor-placement="top-bottom"
-                key={feature.title + i}
+                key={i}
                 className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden"
               >
                 <Grid size={20} />
@@ -84,25 +91,8 @@ const BaralEngineering = () => {
           </div>
         </div>
         <article className="space-y-6">
-          <h1 className="text-5xl font-semibold">Who are we ?</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet eum
-            nam blanditiis inventore aliquam tempora aspernatur laborum nostrum
-            iste minus. Error fuga facere obcaecati quo voluptas ad ullam enim
-            earum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Illo quod cumque ipsa eius officiis repudiandae nostrum
-            reprehenderit exercitationem assumenda nesciunt tempora, atque rem
-            veritatis blanditiis placeat nisi quo eum, porro aliquam saepe
-            suscipit consectetur sit veniam quae. Reprehenderit non, earum dicta
-            necessitatibus eius beatae repellendus deleniti amet dignissimos?
-            Eaque ipsum, consequuntur molestias voluptate perspiciatis error,
-            accusantium quibusdam voluptatem inventore eius illo fugit
-            dignissimos modi soluta veniam in officia dolores architecto!
-            Cupiditate numquam maiores fugiat, quisquam vel sint odit possimus
-            corrupti quis? Officiis recusandae ipsa sequi, excepturi eaque
-            voluptatum tempora quasi facere laborum veritatis quam illo sunt
-            numquam, eius ut dolor!
-          </p>
+          <h1 className="text-5xl font-semibold">{data.data.about_us_title}</h1>
+          <Markdown className={"markdown"}>{data.data.about_us}</Markdown>
         </article>
       </Container>
     </div>
@@ -110,36 +100,3 @@ const BaralEngineering = () => {
 };
 
 export default BaralEngineering;
-
-const grid = [
-  {
-    title: "HIPAA and SOC2 Compliant",
-    description:
-      "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
-  },
-  {
-    title: "Automated Social Media Posting",
-    description:
-      "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
-  },
-  {
-    title: "Advanced Analytics",
-    description:
-      "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
-  },
-  {
-    title: "Content Calendar",
-    description:
-      "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
-  },
-  {
-    title: "Audience Targeting",
-    description:
-      "Reach the right audience with advanced targeting options, including demographics, interests, and behaviors.",
-  },
-  {
-    title: "Social Listening",
-    description:
-      "Monitor social media conversations and trends to stay informed about what your audience is saying and respond in real-time.",
-  },
-];

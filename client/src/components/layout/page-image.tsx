@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { useState } from "react";
+import { StrapiImage } from "../ui/strapi-image";
 
 type Props = React.ComponentProps<"div"> & {
   url?: string;
@@ -28,7 +28,7 @@ export const PageImage = ({ src, alt, url, ...props }: Props) => {
       {!!url && (
         <div className="inset-0 absolute bg-background/50 z-30 group-hover:opacity-100 opacity-0 transition-all duration-400 ease-in-out" />
       )}
-      <Image
+      <StrapiImage
         onLoad={() => setIsImageLoaded(true)}
         onError={() => setIsImageLoaded(true)}
         loading="lazy"

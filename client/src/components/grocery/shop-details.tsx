@@ -1,7 +1,9 @@
+import { GroceryResponse } from "@/types/grocery";
 import { ArrowRight } from "lucide-react";
+import Markdown from "react-markdown";
 import TextGlitch from "../ui/text-glitch";
 
-export const ShopDetails = () => {
+export const ShopDetails = ({ data }: { data: GroceryResponse["data"] }) => {
   return (
     <section className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 py-10 items-start">
       <blockquote
@@ -17,7 +19,7 @@ export const ShopDetails = () => {
               target="_blank"
               className="flex items-center gap-x-3 group"
             >
-              <p>Shop Now</p>
+              <p>{data?.title_on_hover || "Shop Now"}</p>
               <ArrowRight
                 size={32}
                 className="group-hover:scale-150 mt-2 delay-200 transition-all ease-in-out duration-500 group-hover:translate-x-5"
@@ -25,15 +27,13 @@ export const ShopDetails = () => {
             </a>
           }
         >
-          Sasto Sulav Express
+          {data?.shop_name || "Sasto Sulav Express"}
         </TextGlitch>
       </blockquote>
       <div className="relative" data-aos="fade-left">
-        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-          Sasto Sulav, your one-stop grocery store in Japan, offers fresh
-          produce, quality goods, and unbeatable prices to make every shopping
-          trip convenient and affordable for you.
-        </p>
+        <Markdown className="text-lg md:text-xl text-muted-foreground leading-relaxed markdown">
+          {data?.shop_description}
+        </Markdown>
       </div>
     </section>
   );

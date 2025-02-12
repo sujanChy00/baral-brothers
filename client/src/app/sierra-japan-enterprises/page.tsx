@@ -1,69 +1,42 @@
+import { PageHeader } from "@/components/layout/page-header";
 import { PageImage } from "@/components/layout/page-image";
 import { SocialIcons } from "@/components/layout/social-icons";
 import { Container } from "@/components/ui/container";
+import { getSierraJapanEnterprisesPage } from "@/lib/queries";
+import { notFound } from "next/navigation";
+import Markdown from "react-markdown";
 
-const SierraJapanEnterprises = () => {
+const SierraJapanEnterprises = async () => {
+  const data = await getSierraJapanEnterprisesPage();
+  if (!data) return notFound();
   return (
     <Container className="py-10">
-      {/* <PageHeader title="Explore the Wonders of Travel and Tourism" /> */}
+      <PageHeader title={data.data.title} />
       <PageImage
-        src="https://plus.unsplash.com/premium_photo-1681487906725-ecd65970ac66?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="hotel image"
+        src={data.data.banner.url}
+        alt={data.data.banner.alternativeText || "Banner"}
       />
       <section className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 py-10">
         <div>
           <blockquote className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight flex items-start gap-x-1">
             <span className="text-emerald-600">&quot;</span>
-            Real comfort, visual and physical, is vital to every room
+            {data.data.subtitle}
           </blockquote>
         </div>
         <div className="relative">
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            80 days around the world, we&apos;ll find a pot of gold just sitting
-            where the rainbow&apos;s ending. Time – we&apos;ll fight against the
-            time, and we&apos;ll fly on the white wings of the wind.
-          </p>
+          <Markdown className="markdown text-lg md:text-xl text-muted-foreground leading-relaxed">
+            {data.data.description}
+          </Markdown>
           <SocialIcons
-            urls={[
-              {
-                type: "facebook",
-                url: "",
-              },
-              {
-                type: "instagram",
-                url: "",
-              },
-              {
-                type: "linkedIn",
-                url: "",
-              },
-              {
-                type: "twitter",
-                url: "",
-              },
-              {
-                type: "youtube",
-                url: "",
-              },
-            ]}
+            urls={data.data.links.map((link) => ({
+              type: link.type,
+              url: link.url,
+            }))}
           />
         </div>
       </section>
       <div className="mt-4">
-        <p className="text-lg ">
-          Welcome to our restaurant guide! Here, you will find a curated list of
-          the best dining spots in your city. Whether you&apos;re looking for a
-          cozy cafe, a fine dining experience, or a quick bite, we&apos;ve got
-          you covered. Explore our recommendations and enjoy delicious meals at
-          the top restaurants around you.
-        </p>
-        <ul className="mt-4 list-disc list-inside ">
-          <li>Cozy cafes with a warm ambiance</li>
-          <li>Fine dining restaurants for special occasions</li>
-          <li>Quick bites for a fast and tasty meal</li>
-          <li>Family-friendly places with great menus for kids</li>
-          <li>Hidden gems known only to locals</li>
-        </ul>
+        <Markdown className={"markdown"}>{data.data.content}</Markdown>
       </div>
     </Container>
   );

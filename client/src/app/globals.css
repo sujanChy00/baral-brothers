@@ -67,3 +67,47 @@
     @apply bg-background text-foreground;
   }
 }
+
+.markdown a {
+  @apply cursor-pointer font-medium text-blue-600 hover:underline;
+}
+.markdown h1 {
+  @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+}
+.markdown h2 {
+  @apply mt-8 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight;
+}
+.markdown h3 {
+  @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight;
+}
+.markdown h4 {
+  @apply scroll-m-20 text-xl font-semibold tracking-tight;
+}
+.markdown p {
+  @apply leading-7 [&:not(:first-child)]:mt-6;
+}
+.markdown blockquote {
+  @apply mt-6 border-l-2 pl-6 italic;
+}
+.markdown ul {
+  @apply my-6 ml-6 list-disc [&>li]:mt-2;
+}
+.markdown code {
+  @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+}
+.markdown table {
+  @apply w-full;
+}
+.markdown tr {
+  @apply m-0 border-t p-0;
+}
+.markdown th {
+  @apply border bg-secondary px-4 py-2 text-left font-bold text-secondary-foreground [&[align=center]]:text-center [&[align=right]]:text-right;
+}
+.markdown td {
+  @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+}
+
+.markdown ol {
+  @apply my-6 ml-6 list-decimal [&>li]:mt-2;
+}

@@ -1,33 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { HeaderResponse } from "@/types/global";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
-  {
-    href: "/nepali-dining",
-    label: "NEPALESE DINING",
-  },
-  {
-    href: "/baral-engineering",
-    label: "BARAL ENGINEERING",
-  },
-  {
-    href: "/sierra-japan-enterprises",
-    label: "Sierra Japan Enterprises",
-  },
-  {
-    href: "/sasto-sulav-express",
-    label: "Sasto Sulav Express",
-  },
-  {
-    href: "/about",
-    label: "ABOUT",
-  },
-];
-
-export const NavLinks = ({ className }: { className?: string }) => {
+export const NavLinks = ({
+  className,
+  links,
+}: {
+  className?: string;
+  links: HeaderResponse["data"]["links"];
+}) => {
   const pathname = usePathname();
   const active = "bg-secondary";
 
@@ -39,17 +23,17 @@ export const NavLinks = ({ className }: { className?: string }) => {
           className
         )}
       >
-        {links.map(({ href, label }) => (
+        {links.map(({ label, url, id }) => (
           <li
-            key={href}
+            key={id + url}
             className={cn(
               "py-2 px-3 rounded-xl hover:bg-secondary uppercase",
-              pathname === href && active
+              pathname === url && active
             )}
           >
             <Link
               // className={"py-2 px-3 rounded-xl hover:bg-secondary"}
-              href={href}
+              href={url}
             >
               {label}
             </Link>

@@ -1,8 +1,9 @@
 import { SocialIcons } from "@/components/layout/social-icons";
 import { Container } from "@/components/ui/container";
 import { StrapiImage } from "@/components/ui/strapi-image";
-import { getAboutPage } from "@/queries/about";
+import { getAboutPage } from "@/lib/queries";
 import { notFound } from "next/navigation";
+import Markdown from "react-markdown";
 
 const AboutPage = async () => {
   const data = await getAboutPage();
@@ -30,7 +31,8 @@ const AboutPage = async () => {
                   <h3 className="text-4xl font-semibold">{faq?.question}</h3>
                 </div>
                 <div>
-                  <p className="text-lg">{faq?.answer}</p>
+                  <Markdown className={"markdown"}>{faq?.answer}</Markdown>
+                  {/* <p className="text-lg">{faq?.answer}</p> */}
                 </div>
               </section>
             ))}

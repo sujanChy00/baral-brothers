@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { Vortex } from "../ui/vortex";
 
-export const EngineeringBanner = () => {
+export const EngineeringBanner = ({ title }: { title: string }) => {
   const { theme } = useTheme();
   return (
     <div className="w-full h-[55rem] overflow-hidden">
@@ -15,7 +15,7 @@ export const EngineeringBanner = () => {
       >
         <TextGenerateEffect
           duration={0.4}
-          words="  Discover the Latest in Engineering and Technology Innovations and Trends."
+          words={title}
           className="text-6xl font-thin font-lexend md:w-[65%] text-center leading-[5.5rem] tracking-wide"
         />
       </Vortex>

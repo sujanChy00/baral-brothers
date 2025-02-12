@@ -1,12 +1,10 @@
 import { getStrapiURL } from "@/lib/get-url";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
-interface StrapiImageProps {
+type StrapiImageProps = Omit<ImageProps, "src" | "alt"> & {
   src: string;
   alt: string;
-  className?: string;
-  [key: string]: string | number | boolean | undefined;
-}
+};
 
 export function StrapiImage({
   src,

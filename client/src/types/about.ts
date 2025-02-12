@@ -1,4 +1,4 @@
-import { GeneralResponse, IconType, ImageFormat } from "./general";
+import { GeneralResponse, ImageResponse, LinksType } from "./general";
 
 export type AboutResponse = {
   data: AboutData;
@@ -7,28 +7,9 @@ export type AboutResponse = {
 type AboutData = GeneralResponse & {
   id: number;
   title: string;
-  banner: GeneralResponse & {
-    name: string;
-    alternativeText?: string;
-    caption: null;
-    width: number;
-    height: number;
-    formats: ImageFormat;
-    hash: string;
-    ext: string;
-    mime: string;
-    size: number;
-    url: string;
-    previewUrl: null;
-    provider: string;
-    provider_metadata: null;
-  };
+  banner: ImageResponse;
   faq: AboutFaq[];
-  links: {
-    id: number;
-    type: IconType;
-    url?: string;
-  }[];
+  links: LinksType[];
 };
 
 type AboutFaq = {

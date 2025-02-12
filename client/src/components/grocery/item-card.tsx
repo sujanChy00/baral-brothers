@@ -1,6 +1,9 @@
+import { truncateString } from "@/lib/truncate-string";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { ItemsResponse } from "@/types/grocery";
+import Markdown from "react-markdown";
 import { Card, CardContent, CardHeader } from "../ui/card";
+import { StrapiImage } from "../ui/strapi-image";
 import { Tooltip } from "../ui/tooltip";
 export interface ItemCardProps {
   tags?: string[];
@@ -11,7 +14,13 @@ export interface ItemCardProps {
   imageUrl: string;
 }
 
-export function ItemCard({ className }: { className?: string }) {
+export function ItemCard({
+  className,
+  item,
+}: {
+  item: ItemsResponse;
+  className?: string;
+}) {
   return (
     <a
       href="https://tetoteto.co.jp/shop/sasto-sulav-express"
@@ -21,21 +30,21 @@ export function ItemCard({ className }: { className?: string }) {
     >
       <Card className={cn("rounded-xl group hover:border-primary", className)}>
         <CardHeader className="h-56 p-0 rounded-t-xl overflow-hidden relative">
-          <Image
+          <StrapiImage
             fill
             sizes="100vw"
-            alt="image"
-            src="https://cdn.tetoteto.co.jp/item-images/a927942/a927942_1_1671590215517.jpeg"
+            alt={item.title}
+            src={item.image?.url || ""}
             className="object-cover h-full w-full group-hover:scale-125 transition-all ease-in-out duration-500"
           />
         </CardHeader>
         <CardContent className="p-4 space-y-3">
           <Tooltip label="Mix Pickle 400g (Ambika)">
-            <h3 className="text-xl font-semibold">Mix Pickle 400g (Ambika)</h3>
+            <h3 className="text-xl font-semibold">{item.title}</h3>
           </Tooltip>
-          <p className="text-secondary-foreground">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit...
-          </p>
+          <Markdown className="markdownd text-secondary-foreground">
+            {truncateString(item.desc, 40)}
+          </Markdown>
         </CardContent>
       </Card>
     </a>
