@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "nepali_dinings",
+  "info": {
+    "singularName": "nepali-dining",
+    "pluralName": "nepali-dinings",
+    "displayName": "Nepali Dining",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social-links.social-links"
+    }
+  }
+}

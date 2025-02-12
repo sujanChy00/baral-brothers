@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_engineering_facilities_sub_banners",
+  "info": {
+    "displayName": "sub banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "url": {
+      "type": "text"
+    },
+    "button_text": {
+      "type": "string"
+    }
+  }
+}

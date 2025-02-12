@@ -11,5 +11,21 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "banners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.home-banner"
+    },
+    "trending_topics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.trending-topics"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.content"
+    }
+  }
 }

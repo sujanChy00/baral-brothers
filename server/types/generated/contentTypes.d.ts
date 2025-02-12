@@ -403,6 +403,106 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEngineeringPageEngineeringPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'engineering_pages';
+  info: {
+    description: '';
+    displayName: 'Engineering page';
+    pluralName: 'engineering-pages';
+    singularName: 'engineering-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_us: Schema.Attribute.RichText;
+    about_us_title: Schema.Attribute.String;
+    banner_title: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    facilities: Schema.Attribute.Component<
+      'engineering-facilities.facilities',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::engineering-page.engineering-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sub_banner: Schema.Attribute.Component<
+      'engineering-facilities.sub-banner',
+      false
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    displayName: 'footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
+  collectionName: 'headers';
+  info: {
+    description: '';
+    displayName: 'header';
+    pluralName: 'headers';
+    singularName: 'header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    links: Schema.Attribute.Component<'global.header-links', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::header.header'
+    > &
+      Schema.Attribute.Private;
+    logo_text: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Baral & Brothers'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -415,6 +515,8 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    banners: Schema.Attribute.Component<'home.home-banner', true>;
+    content: Schema.Attribute.Component<'home.content', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -425,6 +527,119 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    trending_topics: Schema.Attribute.Component<'home.trending-topics', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNepaliDiningNepaliDining extends Struct.SingleTypeSchema {
+  collectionName: 'nepali_dinings';
+  info: {
+    description: '';
+    displayName: 'Nepali Dining';
+    pluralName: 'nepali-dinings';
+    singularName: 'nepali-dining';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    links: Schema.Attribute.Component<'social-links.social-links', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nepali-dining.nepali-dining'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSastoSulavExpressSastoSulavExpress
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sasto_sulav_expresses';
+  info: {
+    description: '';
+    displayName: 'sasto sulav express';
+    pluralName: 'sasto-sulav-expresses';
+    singularName: 'sasto-sulav-express';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_shop: Schema.Attribute.RichText;
+    banner: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    items: Schema.Attribute.Component<'grocery-items.featured-items', false>;
+    links: Schema.Attribute.Component<'social-links.social-links', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sasto-sulav-express.sasto-sulav-express'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    shop_card_desc: Schema.Attribute.RichText;
+    shop_description: Schema.Attribute.RichText &
+      Schema.Attribute.DefaultTo<'Sasto Sulav, your one-stop grocery store in Japan, offers fresh produce, quality goods, and unbeatable prices to make every shopping trip convenient and affordable for you.'>;
+    shop_location: Schema.Attribute.String;
+    shop_name: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Sasto Sulav Express'>;
+    shop_type: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Grocery Store'>;
+    shop_url: Schema.Attribute.Text;
+    title_on_hover: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Shop Now'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSierraJapanEnterpriseSierraJapanEnterprise
+  extends Struct.SingleTypeSchema {
+  collectionName: 'sierra_japan_enterprises';
+  info: {
+    displayName: 'Sierra Japan Enterprise';
+    pluralName: 'sierra-japan-enterprises';
+    singularName: 'sierra-japan-enterprise';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    links: Schema.Attribute.Component<'social-links.social-links', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sierra-japan-enterprise.sierra-japan-enterprise'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -941,7 +1156,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::engineering-page.engineering-page': ApiEngineeringPageEngineeringPage;
+      'api::footer.footer': ApiFooterFooter;
+      'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::nepali-dining.nepali-dining': ApiNepaliDiningNepaliDining;
+      'api::sasto-sulav-express.sasto-sulav-express': ApiSastoSulavExpressSastoSulavExpress;
+      'api::sierra-japan-enterprise.sierra-japan-enterprise': ApiSierraJapanEnterpriseSierraJapanEnterprise;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

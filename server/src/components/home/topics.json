@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_home_topics",
+  "info": {
+    "displayName": "topics",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "enumeration",
+      "enum": [
+        "/nepali-dining",
+        "/baral-engineering",
+        "/sierra-japan-enterprises",
+        "/sasto-sulav-express"
+      ]
+    }
+  }
+}

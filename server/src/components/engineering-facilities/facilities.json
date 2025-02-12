@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_engineering_facilities_facilities",
+  "info": {
+    "displayName": "facilities",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "our_facilities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "engineering-facilities.top-facilities"
+    }
+  }
+}

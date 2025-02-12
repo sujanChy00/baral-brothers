@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_grocery_items_featured_items",
+  "info": {
+    "displayName": "featured items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "url": {
+      "type": "text"
+    },
+    "button_text": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "grocery-items.items"
+    }
+  }
+}

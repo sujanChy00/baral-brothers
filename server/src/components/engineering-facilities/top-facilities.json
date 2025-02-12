@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_engineering_facilities_top_facilities",
+  "info": {
+    "displayName": "Top Facilities"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

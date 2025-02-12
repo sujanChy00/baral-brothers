@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_home_trending_topics",
+  "info": {
+    "displayName": "trending topics",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "topics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.topics"
+    }
+  }
+}

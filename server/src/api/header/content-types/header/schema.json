@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "header",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logo_text": {
+      "type": "text",
+      "required": true,
+      "default": "Baral & Brothers"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.header-links"
+    }
+  }
+}

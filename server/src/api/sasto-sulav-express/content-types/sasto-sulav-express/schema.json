@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "sasto_sulav_expresses",
+  "info": {
+    "singularName": "sasto-sulav-express",
+    "pluralName": "sasto-sulav-expresses",
+    "displayName": "sasto sulav express",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "shop_name": {
+      "type": "string",
+      "default": "Sasto Sulav Express"
+    },
+    "title_on_hover": {
+      "type": "string",
+      "default": "Shop Now"
+    },
+    "shop_description": {
+      "type": "richtext",
+      "default": "Sasto Sulav, your one-stop grocery store in Japan, offers fresh produce, quality goods, and unbeatable prices to make every shopping trip convenient and affordable for you."
+    },
+    "shop_type": {
+      "type": "string",
+      "default": "Grocery Store"
+    },
+    "about_shop": {
+      "type": "richtext"
+    },
+    "shop_card_desc": {
+      "type": "richtext"
+    },
+    "shop_location": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social-links.social-links"
+    },
+    "shop_url": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": false,
+      "component": "grocery-items.featured-items"
+    }
+  }
+}

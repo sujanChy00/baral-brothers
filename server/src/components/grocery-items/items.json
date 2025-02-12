@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_grocery_items_items",
+  "info": {
+    "displayName": "items",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "desc": {
+      "type": "richtext"
+    },
+    "url": {
+      "type": "text"
+    }
+  }
+}

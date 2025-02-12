@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "sierra_japan_enterprises",
+  "info": {
+    "singularName": "sierra-japan-enterprise",
+    "pluralName": "sierra-japan-enterprises",
+    "displayName": "Sierra Japan Enterprise"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social-links.social-links"
+    }
+  }
+}
