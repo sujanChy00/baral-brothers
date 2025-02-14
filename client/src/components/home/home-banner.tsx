@@ -7,7 +7,7 @@ import { StrapiImage } from "../ui/strapi-image";
 export const HomeBanner = ({ banners }: { banners: HomeBannersResponse[] }) => {
   const router = useRouter();
   return (
-    <section className="py-4 h-[60dvh]" data-aos="zoom-in">
+    <section className="py-4 h-[60dvh] animate__zoomIn animate__faster animate__animated">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 items-stretch gap-4 h-full">
         <div
           onClick={() => {

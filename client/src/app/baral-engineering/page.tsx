@@ -73,9 +73,6 @@ const BaralEngineering = async () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-6">
             {data.data.facilities.our_facilities.map((feature, i) => (
               <div
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
-                data-aos-anchor-placement="top-bottom"
                 key={i}
                 className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden"
               >

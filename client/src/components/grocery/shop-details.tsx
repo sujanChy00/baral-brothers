@@ -6,10 +6,7 @@ import TextGlitch from "../ui/text-glitch";
 export const ShopDetails = ({ data }: { data: GroceryResponse["data"] }) => {
   return (
     <section className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 py-10 items-start">
-      <blockquote
-        data-aos="fade-right"
-        className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight flex items-start gap-x-1 relative"
-      >
+      <blockquote className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight flex items-start gap-x-1 relative">
         <span className="text-emerald-600">&quot;</span>
         <TextGlitch
           className="w-full text-primary bg-muted"
@@ -30,7 +27,7 @@ export const ShopDetails = ({ data }: { data: GroceryResponse["data"] }) => {
           {data?.shop_name || "Sasto Sulav Express"}
         </TextGlitch>
       </blockquote>
-      <div className="relative" data-aos="fade-left">
+      <div className="relative">
         <Markdown className="text-lg md:text-xl text-muted-foreground leading-relaxed markdown">
           {data?.shop_description}
         </Markdown>

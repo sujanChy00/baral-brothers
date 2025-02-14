@@ -2,7 +2,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { getHeader } from "@/lib/queries";
-import "aos/dist/aos.css";
+import "animate.css";
 import type { Metadata } from "next";
 import { DM_Sans, Lexend } from "next/font/google";
 import { Suspense } from "react";

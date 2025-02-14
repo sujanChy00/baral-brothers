@@ -17,10 +17,7 @@ export const AboutShop = ({ data }: { data: GroceryResponse["data"] }) => {
         </div>
         <div className="md:col-span-4 col-span-12">
           <a href={data?.shop_url || ""} target="_blank" className="block">
-            <Card
-              className="rounded-3xl dark:bg-neutral-900 bg-gray-200 hover:border-primary border border-transparent"
-              data-aos="flip-left"
-            >
+            <Card className="rounded-3xl dark:bg-neutral-900 bg-gray-200 hover:border-primary border border-transparent">
               <CardHeader className="flex-row items-center gap-4 p-4">
                 <div className="h-14 w-14 border-4 rounded-full border-primary relative overflow-hidden">
                   <StrapiImage

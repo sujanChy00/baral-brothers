@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { HomeContentResponse } from "@/types/home";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { AnimatedDiv } from "../ui/animated-div";
 import { Button } from "../ui/button";
 import { Container } from "../ui/container";
 import { StrapiImage } from "../ui/strapi-image";
@@ -21,12 +22,14 @@ export const HomeContent = ({
               key={item.id}
               className="h-[50rem] grid grid-cols-12 lg:gap-8 gap-4 items-center"
             >
-              <div
+              <AnimatedDiv
+                animate={`animate__faster ${
+                  isOdd ? "animate__fadeInLeft" : "animate__fadeInRight"
+                }`}
                 className={cn(
                   "col-span-12 lg:col-span-6 h-full overflow-hidden p-0 relative",
                   isOdd ? "lg:order-1 order-2" : "lg:order-2 order-1"
                 )}
-                data-aos="fade-right"
               >
                 <StrapiImage
                   fill
@@ -35,13 +38,13 @@ export const HomeContent = ({
                   alt={item.image?.alternativeText || ""}
                   className="h-full w-full object-cover"
                 />
-              </div>
-              <div
+              </AnimatedDiv>
+              <AnimatedDiv
+                animate="animate__fadeInUp animate__faster"
                 className={cn(
                   "col-span-12 lg:col-span-6 space-y-10",
                   isOdd ? "lg:order-2 order-1" : "lg:order-1 order-2"
                 )}
-                data-aos="fade-up"
               >
                 <div className="space-y-6">
                   <h3 className="text-5xl font-semibold">{item.title}</h3>
@@ -78,7 +81,7 @@ export const HomeContent = ({
                     </Button>
                   </Link>
                 </div>
-              </div>
+              </AnimatedDiv>
             </Container>
           );
         })}
