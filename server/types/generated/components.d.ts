@@ -57,10 +57,11 @@ export interface FaqFaq extends Struct.ComponentSchema {
 export interface GlobalHeaderLinks extends Struct.ComponentSchema {
   collectionName: 'components_global_header_links';
   info: {
+    description: '';
     displayName: 'header links';
   };
   attributes: {
-    label: Schema.Attribute.Text;
+    label: Schema.Attribute.Text & Schema.Attribute.Required;
     url: Schema.Attribute.Enumeration<
       [
         '/nepali-dining',
@@ -69,7 +70,8 @@ export interface GlobalHeaderLinks extends Struct.ComponentSchema {
         '/sasto-sulav-express',
         '/about',
       ]
-    >;
+    > &
+      Schema.Attribute.Required;
   };
 }
 

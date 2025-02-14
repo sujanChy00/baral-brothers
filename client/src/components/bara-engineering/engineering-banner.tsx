@@ -15,7 +15,7 @@ export const EngineeringBanner = ({ title }: { title: string }) => {
       >
         <TextGenerateEffect
           duration={0.4}
-          words={title}
+          words={title || ""}
           className="text-6xl font-thin font-lexend md:w-[65%] text-center leading-[5.5rem] tracking-wide"
         />
       </Vortex>

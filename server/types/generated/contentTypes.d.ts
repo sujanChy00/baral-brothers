@@ -434,6 +434,7 @@ export interface ApiEngineeringPageEngineeringPage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-seo.seo', false>;
     sub_banner: Schema.Attribute.Component<
       'engineering-facilities.sub-banner',
       false
@@ -447,6 +448,7 @@ export interface ApiEngineeringPageEngineeringPage
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
+    description: '';
     displayName: 'footer';
     pluralName: 'footers';
     singularName: 'footer';
@@ -465,7 +467,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    text: Schema.Attribute.Text;
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -562,6 +564,7 @@ export interface ApiNepaliDiningNepaliDining extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-seo.seo', false>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -597,6 +600,7 @@ export interface ApiSastoSulavExpressSastoSulavExpress
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-seo.seo', false>;
     shop_card_desc: Schema.Attribute.RichText;
     shop_description: Schema.Attribute.RichText &
       Schema.Attribute.DefaultTo<'Sasto Sulav, your one-stop grocery store in Japan, offers fresh produce, quality goods, and unbeatable prices to make every shopping trip convenient and affordable for you.'>;
@@ -618,6 +622,7 @@ export interface ApiSierraJapanEnterpriseSierraJapanEnterprise
   extends Struct.SingleTypeSchema {
   collectionName: 'sierra_japan_enterprises';
   info: {
+    description: '';
     displayName: 'Sierra Japan Enterprise';
     pluralName: 'sierra-japan-enterprises';
     singularName: 'sierra-japan-enterprise';
@@ -640,6 +645,7 @@ export interface ApiSierraJapanEnterpriseSierraJapanEnterprise
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-seo.seo', false>;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;

@@ -18,13 +18,11 @@ export type FooterResponse = {
 };
 
 export type SeoResponse = {
-  data: GeneralResponse & {
-    title: string;
-    description: string;
-    fav_icon: ImageResponse;
-    keywords: PageKeywords[];
-    open_graph: OpenGraph;
-  };
+  title: string;
+  description: string;
+  fav_icon: ImageResponse;
+  keywords: PageKeywords[];
+  open_graph: OpenGraph;
 };
 
 export type PageKeywords = {

@@ -43,13 +43,13 @@ export const Header = ({ data }: { data: HeaderResponse }) => {
       >
         <Link href={"/"} className="text-2xl font-bold relative">
           <div className="h-12 bg-primary w-10 absolute top-1/2 -translate-y-1/2 -left-4 rounded-l-full" />
-          <p className="relative z-20">{data.data.logo_text}</p>
+          <p className="relative z-20">{data.data?.logo_text}</p>
         </Link>
-        <NavLinks links={data.data.links} />
+        <NavLinks links={data.data?.links || []} />
         <div className="flex items-center lg:gap-0 gap-3">
           <ThemeToggler />
           <div className="lg:hidden block">
-            <MobileSidebar links={data.data.links} />
+            <MobileSidebar links={data.data?.links || []} />
           </div>
         </div>
       </div>

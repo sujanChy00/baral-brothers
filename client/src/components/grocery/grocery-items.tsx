@@ -15,7 +15,7 @@ export const GroceryItems = ({ data }: { data: GroceryResponse["data"] }) => {
     <section className="pt-16 space-y-6">
       <div className="flex items-center justify-between">
         <h3 className="text-3xl font-semibold text-secondary-foreground">
-          {data.items.title}
+          {data?.items?.title}
         </h3>
         <a
           href={
@@ -36,7 +36,7 @@ export const GroceryItems = ({ data }: { data: GroceryResponse["data"] }) => {
         }}
       >
         <CarouselContent>
-          {data.items.items.map((item, i) => (
+          {data?.items?.items?.map((item, i) => (
             <CarouselItem
               key={i}
               className="xl:basis-1/5 lg:basis-1/4 md:basis-1/3 sm:basis-1/2 basis-full"

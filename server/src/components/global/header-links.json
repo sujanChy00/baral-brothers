@@ -1,12 +1,14 @@
 {
   "collectionName": "components_global_header_links",
   "info": {
-    "displayName": "header links"
+    "displayName": "header links",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "label": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "url": {
       "type": "enumeration",
@@ -16,7 +18,8 @@
         "/sierra-japan-enterprises",
         "/sasto-sulav-express",
         "/about"
-      ]
+      ],
+      "required": true
     }
   }
 }

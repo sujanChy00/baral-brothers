@@ -28,7 +28,7 @@ export const AboutShop = ({ data }: { data: GroceryResponse["data"] }) => {
                     fill
                     className="object-cover"
                     alt={data?.shop_name}
-                    src={data.banner?.url || ""}
+                    src={data?.banner?.url || ""}
                   />
                 </div>
                 <div className="space-y-1">
@@ -52,7 +52,7 @@ export const AboutShop = ({ data }: { data: GroceryResponse["data"] }) => {
                 </div>
                 <SocialIcons
                   className="flex items-center gap-4 static space-y-0"
-                  urls={data.links?.map((link) => ({
+                  urls={data?.links?.map((link) => ({
                     type: link.type,
                     url: link.url,
                   }))}

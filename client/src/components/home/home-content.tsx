@@ -10,16 +10,16 @@ import { StrapiImage } from "../ui/strapi-image";
 export const HomeContent = ({
   content,
 }: {
-  content: HomeContentResponse[];
+  content?: HomeContentResponse[];
 }) => {
   return (
     <section className="lg:space-y-14">
       <div className="lg:space-y-14 bg-secondary py-20">
-        {content.map((item, i) => {
+        {content?.map((item, i) => {
           const isOdd = i % 2 === 0;
           return (
             <Container
-              key={item.id}
+              key={item?.id}
               className="h-[50rem] grid grid-cols-12 lg:gap-8 gap-4 items-center"
             >
               <AnimatedDiv
@@ -34,8 +34,8 @@ export const HomeContent = ({
                 <StrapiImage
                   fill
                   sizes="100vw"
-                  src={item.image.url}
-                  alt={item.image?.alternativeText || ""}
+                  src={item?.image?.url || ""}
+                  alt={item?.image?.alternativeText || ""}
                   className="h-full w-full object-cover"
                 />
               </AnimatedDiv>
@@ -47,11 +47,11 @@ export const HomeContent = ({
                 )}
               >
                 <div className="space-y-6">
-                  <h3 className="text-5xl font-semibold">{item.title}</h3>
-                  <Markdown className={"markdown"}>{item.desc}</Markdown>
+                  <h3 className="text-5xl font-semibold">{item?.title}</h3>
+                  <Markdown className={"markdown"}>{item?.desc}</Markdown>
                 </div>
                 <div>
-                  <Link href={item.url}>
+                  <Link href={item?.url || ""}>
                     <Button
                       className="group relative h-[calc(48px+8px)] rounded-full border border-primary py-1 pr-14 font-medium"
                       variant={"secondary"}

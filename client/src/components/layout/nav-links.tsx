@@ -23,19 +23,19 @@ export const NavLinks = ({
           className
         )}
       >
-        {links.map(({ label, url, id }) => (
+        {links?.map((link) => (
           <li
-            key={id + url}
+            key={link?.id + link?.url}
             className={cn(
               "py-2 px-3 rounded-xl hover:bg-secondary uppercase",
-              pathname === url && active
+              pathname === link?.url && active
             )}
           >
             <Link
               // className={"py-2 px-3 rounded-xl hover:bg-secondary"}
-              href={url}
+              href={link?.url}
             >
-              {label}
+              {link?.label}
             </Link>
           </li>
         ))}

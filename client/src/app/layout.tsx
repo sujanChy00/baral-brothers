@@ -1,7 +1,8 @@
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { getHeader } from "@/lib/queries";
+import { defaultOGImage, OGheight, OGwidth, siteName } from "@/lib/meta";
+import { getHeader, getHomePage } from "@/lib/queries";
 import "animate.css";
 import type { Metadata } from "next";
 import { DM_Sans, Lexend } from "next/font/google";
@@ -18,47 +19,45 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Bral & Brothers",
+export const generateMetadata = async (): Promise<Metadata> => {
+  const res = await getHomePage();
+  const seo = res.data?.seo;
+  return {
+    title: seo?.title || `Baral & Brothers`,
+    description: seo?.description,
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_NAME || ""),
+    icons: {
+      icon: seo?.fav_icon.url || "/favicon.ico",
+    },
+    keywords: seo?.keywords?.map((keyword) => keyword?.page_keyword) || [],
+    openGraph: {
+      images: [
+        {
+          url: seo?.open_graph?.image?.url || defaultOGImage,
+          width: OGwidth,
+          height: OGheight,
+          alt: seo?.open_graph?.alt || "baral brothers",
+        },
+      ],
+      title: seo?.title || "Baral & brothers",
+      description: seo?.open_graph?.description,
+      url: process.env.NEXT_PUBLIC_BASE_URL,
+      siteName: seo?.open_graph?.site_name || siteName,
+    },
+    twitter: {
+      images: [
+        {
+          url: seo?.open_graph?.image?.url || defaultOGImage,
+          alt: seo?.open_graph?.alt || "baral brothers",
+          height: OGwidth,
+          width: OGheight,
+        },
+      ],
+      title: seo?.title || "Baral & brothers",
+      description: seo?.open_graph?.description,
+    },
+  };
 };
-
-// export const generateMetadata = async (): Promise<Metadata> => {
-//   const res = await getHomePage();
-//   return {
-//     title: res.data?.title || `Bral Brothers`,
-//     description: res.data?.description,
-//     icons: {
-//       icon: res.data?.fav_icon.url || "/favicon.ico",
-//     },
-//     keywords: res.data?.keywords?.map((keyword) => keyword?.page_keyword) || [],
-//     // openGraph: {
-//     //   images: [
-//     //     {
-//     //       url: res.data?.open_graph.image.url || defaultOGImage,
-//     //       width: res.data?.open_graph.width || OGwidth,
-//     //       height: res.data?.open_graph.height || OGheight,
-//     //       alt: res.data?.open_graph.alt || "baral brothers",
-//     //     },
-//     //   ],
-//     //   title: res.data.open_graph?.title,
-//     //   description: res.data.open_graph?.description,
-//     //   url: process.env.NEXT_PUBLIC_BASE_URL,
-//     //   siteName: res.data.open_graph.site_name || siteName,
-//     // },
-//     // twitter: {
-//     //   images: [
-//     //     {
-//     //       url: defaultOGImage,
-//     //       alt: "tetoteto",
-//     //       height: OGwidth,
-//     //       width: OGheight,
-//     //     },
-//     //   ],
-//     //   title: `tetoteto | ${dictionary.home}`,
-//     //   description: dictionary.description,
-//     // },
-//   };
-// };
 
 export default async function RootLayout({
   children,

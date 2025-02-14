@@ -33,17 +33,17 @@ export function ItemCard({
           <StrapiImage
             fill
             sizes="100vw"
-            alt={item.title}
+            alt={item?.title}
             src={item.image?.url || ""}
             className="object-cover h-full w-full group-hover:scale-125 transition-all ease-in-out duration-500"
           />
         </CardHeader>
         <CardContent className="p-4 space-y-3">
           <Tooltip label="Mix Pickle 400g (Ambika)">
-            <h3 className="text-xl font-semibold">{item.title}</h3>
+            <h3 className="text-xl font-semibold">{item?.title}</h3>
           </Tooltip>
           <Markdown className="markdownd text-secondary-foreground">
-            {truncateString(item.desc, 40)}
+            {truncateString(item?.desc, 40)}
           </Markdown>
         </CardContent>
       </Card>

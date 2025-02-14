@@ -10,10 +10,10 @@ export default async function Home() {
   return (
     <div>
       <Container>
-        <HomeBanner banners={data.data.banners} />
-        <FeaturedTopics />
+        <HomeBanner banners={data.data?.banners} />
+        <FeaturedTopics topics={data.data?.trending_topics} />
       </Container>
-      <HomeContent content={data.data.content} />
+      <HomeContent content={data.data?.content} />
     </div>
   );
 }
