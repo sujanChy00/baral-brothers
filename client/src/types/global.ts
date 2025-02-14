@@ -1,4 +1,4 @@
-import { GeneralResponse } from "./general";
+import { GeneralResponse, ImageResponse } from "./general";
 
 export type HeaderResponse = {
   data: GeneralResponse & {
@@ -15,4 +15,27 @@ export type FooterResponse = {
   data: GeneralResponse & {
     text: string;
   };
+};
+
+export type SeoResponse = {
+  data: GeneralResponse & {
+    title: string;
+    description: string;
+    fav_icon: ImageResponse;
+    keywords: PageKeywords[];
+    open_graph: OpenGraph;
+  };
+};
+
+export type PageKeywords = {
+  page_keyword: string;
+  id: number;
+};
+
+export type OpenGraph = {
+  alt: string;
+  image: ImageResponse;
+  site_name?: string;
+  title: string;
+  description: string;
 };

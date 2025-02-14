@@ -1,5 +1,5 @@
 import { AboutResponse } from "@/types/about";
-import { EngineeringPageResponse } from "@/types/engeeing";
+import { EngineeringPageResponse } from "@/types/engeering";
 import { GeneralData } from "@/types/general";
 import { FooterResponse, HeaderResponse } from "@/types/global";
 import { GroceryResponse } from "@/types/grocery";

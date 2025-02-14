@@ -1,9 +1,11 @@
 import { GeneralResponse, ImageResponse } from "./general";
+import { SeoResponse } from "./global";
 
 export type HomeResponse = {
   data: GeneralResponse & {
     banners: HomeBannersResponse[];
     content: HomeContentResponse[];
+    seo: SeoResponse;
   };
 };
 

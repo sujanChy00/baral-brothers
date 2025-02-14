@@ -2,6 +2,7 @@ import { GroceryResponse } from "@/types/grocery";
 import { MapPin } from "lucide-react";
 import Markdown from "react-markdown";
 import { SocialIcons } from "../layout/social-icons";
+import { AnimatedDiv } from "../ui/animated-div";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import { StrapiImage } from "../ui/strapi-image";
 
@@ -15,7 +16,10 @@ export const AboutShop = ({ data }: { data: GroceryResponse["data"] }) => {
         <div className="md:col-span-8 col-span-12">
           <Markdown className={"markdown"}>{data?.about_shop}</Markdown>
         </div>
-        <div className="md:col-span-4 col-span-12">
+        <AnimatedDiv
+          animate="animate__flipInY animate__faster"
+          className="md:col-span-4 col-span-12"
+        >
           <a href={data?.shop_url || ""} target="_blank" className="block">
             <Card className="rounded-3xl dark:bg-neutral-900 bg-gray-200 hover:border-primary border border-transparent">
               <CardHeader className="flex-row items-center gap-4 p-4">
@@ -56,7 +60,7 @@ export const AboutShop = ({ data }: { data: GroceryResponse["data"] }) => {
               </CardFooter>
             </Card>
           </a>
-        </div>
+        </AnimatedDiv>
       </div>
     </article>
   );

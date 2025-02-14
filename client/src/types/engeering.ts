@@ -1,4 +1,5 @@
 import { GeneralResponse } from "./general";
+import { SeoResponse } from "./global";
 
 export type EngineeringPageResponse = {
   data: GeneralResponse & {
@@ -17,6 +18,7 @@ export type EngineeringPageResponse = {
       url: string;
       button_text: string;
     };
+    seo: SeoResponse;
   };
 };
 

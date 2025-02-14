@@ -174,6 +174,56 @@ export interface HomeTrendingTopics extends Struct.ComponentSchema {
   };
 }
 
+export interface PageSeoKeywords extends Struct.ComponentSchema {
+  collectionName: 'components_page_seo_keywords';
+  info: {
+    displayName: 'keywords';
+  };
+  attributes: {
+    page_keyword: Schema.Attribute.Text;
+  };
+}
+
+export interface PageSeoOpenGraph extends Struct.ComponentSchema {
+  collectionName: 'components_page_seo_open_graphs';
+  info: {
+    description: '';
+    displayName: 'open_graph';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Component<'page-seo.open-graph-images', false>;
+    site_name: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageSeoOpenGraphImages extends Struct.ComponentSchema {
+  collectionName: 'components_page_seo_open_graph_images';
+  info: {
+    description: '';
+    displayName: 'open_graph_images';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface PageSeoSeo extends Struct.ComponentSchema {
+  collectionName: 'components_page_seo_seos';
+  info: {
+    displayName: 'seo';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    fav_icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    keywords: Schema.Attribute.Component<'page-seo.keywords', true>;
+    open_graphs: Schema.Attribute.Component<'page-seo.open-graph', false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SocialLinksSocialLinks extends Struct.ComponentSchema {
   collectionName: 'components_social_links_social_links';
   info: {
@@ -211,6 +261,10 @@ declare module '@strapi/strapi' {
       'home.home-banner': HomeHomeBanner;
       'home.topics': HomeTopics;
       'home.trending-topics': HomeTrendingTopics;
+      'page-seo.keywords': PageSeoKeywords;
+      'page-seo.open-graph': PageSeoOpenGraph;
+      'page-seo.open-graph-images': PageSeoOpenGraphImages;
+      'page-seo.seo': PageSeoSeo;
       'social-links.social-links': SocialLinksSocialLinks;
     }
   }

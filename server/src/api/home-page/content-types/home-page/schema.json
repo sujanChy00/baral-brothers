@@ -26,6 +26,11 @@
       "type": "component",
       "repeatable": true,
       "component": "home.content"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-seo.seo"
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_page_seo_keywords",
+  "info": {
+    "displayName": "keywords"
+  },
+  "options": {},
+  "attributes": {
+    "page_keyword": {
+      "type": "text"
+    }
+  }
+}

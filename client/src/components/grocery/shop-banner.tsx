@@ -4,7 +4,7 @@ import { StrapiImage } from "../ui/strapi-image";
 
 export const ShopBanner = ({ data }: { data: GroceryResponse["data"] }) => {
   return (
-    <header>
+    <header className="animate__zoomIn animate__faster animate__animated">
       <a
         href="https://tetoteto.co.jp/shop/sasto-sulav-express"
         target="_blank"

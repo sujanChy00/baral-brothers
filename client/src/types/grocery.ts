@@ -1,4 +1,5 @@
 import { GeneralResponse, ImageResponse, LinksType } from "./general";
+import { SeoResponse } from "./global";
 
 export type GroceryResponse = {
   data: GeneralResponse & {
@@ -13,6 +14,7 @@ export type GroceryResponse = {
     shop_location?: string;
     links: LinksType[];
     items: FeaturedItems;
+    seo: SeoResponse;
   };
 };
 

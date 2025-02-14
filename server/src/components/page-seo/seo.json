@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_page_seo_seos",
+  "info": {
+    "displayName": "seo"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "fav_icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "keywords": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page-seo.keywords"
+    },
+    "open_graphs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-seo.open-graph"
+    }
+  }
+}

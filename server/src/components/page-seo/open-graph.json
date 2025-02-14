@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_seo_open_graphs",
+  "info": {
+    "displayName": "open_graph",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "site_name": {
+      "type": "text"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-seo.open-graph-images"
+    }
+  }
+}
