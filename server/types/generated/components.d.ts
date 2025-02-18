@@ -215,11 +215,11 @@ export interface PageSeoOpenGraphImages extends Struct.ComponentSchema {
 export interface PageSeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_page_seo_seos';
   info: {
+    description: '';
     displayName: 'seo';
   };
   attributes: {
     description: Schema.Attribute.Text;
-    fav_icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     keywords: Schema.Attribute.Component<'page-seo.keywords', true>;
     open_graphs: Schema.Attribute.Component<'page-seo.open-graph', false>;
     title: Schema.Attribute.String;

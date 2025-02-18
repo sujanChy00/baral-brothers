@@ -1,7 +1,8 @@
 {
   "collectionName": "components_page_seo_seos",
   "info": {
-    "displayName": "seo"
+    "displayName": "seo",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,16 +11,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "fav_icon": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
     },
     "keywords": {
       "type": "component",
