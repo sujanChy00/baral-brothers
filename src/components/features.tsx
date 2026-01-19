@@ -5,17 +5,17 @@ const list = [
   {
     title: "Fast Service",
     description: "Rapid response for all technical needs.",
-    icon: <Truck className="text-primary size-8" />,
+    icon: <Truck className="text-primary size-14" />,
   },
   {
     title: "Quality Guarantee",
     description: "Rigorous operational standards applied.",
-    icon: <BadgeCheck className="text-primary size-8" />,
+    icon: <BadgeCheck className="text-primary size-14" />,
   },
   {
     title: "Special Offers",
     description: "Competitive rates for ongoing contracts.",
-    icon: <Tag className="text-primary size-8" />,
+    icon: <Tag className="text-primary size-14" />,
   },
 ];
 
