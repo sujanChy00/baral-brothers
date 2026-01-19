@@ -17,7 +17,10 @@ export const ContactDetails = () => {
           </div>
           <div className="flex items-start gap-4 mb-6">
             <PhoneCall className="text-primary" />
-            <a href="tel:0488653396" className="text-slate-600">
+            <a
+              href="tel:0488653396"
+              className="text-slate-600 hover:text-primary transition-colors hover:underline"
+            >
               0488653396
             </a>
           </div>
