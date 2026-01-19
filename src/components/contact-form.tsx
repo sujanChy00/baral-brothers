@@ -3,9 +3,33 @@ import { Instagram } from "@/icons/instagram";
 import { Twitter } from "@/icons/twitter";
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, Send } from "lucide-react";
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Container } from "./container";
 
 export const ContactForm = () => {
+  const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
+
+  const onCaptchaChange = (token: string | null): void => {
+    setCaptchaVerified(!!token);
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!captchaVerified) return;
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+      newsletter: formData.get("newsletter") === "on",
+    };
+
+    console.log(data);
+
+    setCaptchaVerified(false);
+  };
   return (
     <div className="bg-slate-50" id="contact">
       <Container className="py-20">
@@ -59,13 +83,14 @@ export const ContactForm = () => {
             </div>
           </div>
           <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl">
-            <form action="#" className="space-y-6">
+            <form onSubmit={onSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold mb-2 text-slate-700">
                     Name *
                   </label>
                   <input
+                    name="name"
                     className="w-full bg-slate-50 border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary transition-all"
                     placeholder="Your name"
                     required
@@ -77,6 +102,7 @@ export const ContactForm = () => {
                     Email *
                   </label>
                   <input
+                    name="email"
                     className="w-full bg-slate-50 border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary transition-all"
                     placeholder="email@example.com"
                     required
@@ -89,6 +115,7 @@ export const ContactForm = () => {
                   Subject *
                 </label>
                 <input
+                  name="subject"
                   className="w-full bg-slate-50 border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary transition-all"
                   placeholder="How can we help?"
                   required
@@ -100,6 +127,7 @@ export const ContactForm = () => {
                   Message *
                 </label>
                 <textarea
+                  name="message"
                   className="w-full bg-slate-50 border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary transition-all"
                   placeholder="Your message details..."
                   required
@@ -111,6 +139,7 @@ export const ContactForm = () => {
                   className=" rounded border-slate-300 text-primary focus:ring-primary"
                   id="newsletter"
                   type="checkbox"
+                  name="newsletter"
                 />
                 <label className="text-xs text-slate-500" htmlFor="newsletter">
                   Yes, I want to receive news about promotions.{" "}
@@ -119,8 +148,15 @@ export const ContactForm = () => {
                   </Link>
                 </label>
               </div>
+              {!captchaVerified && (
+                <ReCAPTCHA
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={onCaptchaChange}
+                />
+              )}
               <button
-                className="w-full bg-amber-600 text-white font-bold py-4 rounded-xl hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2"
+                disabled={!captchaVerified}
+                className="w-full bg-amber-600 disabled:opacity-50 text-white font-bold py-4 rounded-xl hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2"
                 type="submit"
               >
                 <span>Send Message</span> <Send />
