@@ -7,7 +7,7 @@ import { Container } from "./container";
 export const Footer = () => {
   return (
     <footer className="py-10 bg-slate-900">
-      <Container className="flex flex-col md:flex-row justify-between items-start gap-6">
+      <Container className="flex flex-col md:flex-row justify-between md:items-start items-center gap-6">
         <h3 className="text-sm font-medium text-slate-200 ">
           Baral Brothers 株式会社 <span className="mx-2">|</span>{" "}
           <a
