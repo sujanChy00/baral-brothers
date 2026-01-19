@@ -3,7 +3,7 @@ import { Container } from "./container";
 
 export const Header = () => {
   return (
-    <header className="py-4 border-b border-b-border">
+    <header className="py-4 border-b border-b-border sticky top-0 z-50 bg-white/10 backdrop-blur">
       <Container className="flex items-center justify-between">
         <Link to="/">
           <h1>
