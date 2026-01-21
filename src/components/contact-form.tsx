@@ -2,7 +2,7 @@ import { Facebook } from "@/icons/facebook";
 import { Instagram } from "@/icons/instagram";
 import { Twitter } from "@/icons/twitter";
 import { Link } from "@tanstack/react-router";
-import { Circle, Mail, Phone, Send } from "lucide-react";
+import { Circle, LoaderCircle, Mail, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Container } from "./container";
@@ -180,7 +180,11 @@ export const ContactForm = () => {
                 type="submit"
               >
                 <span>Send Message</span>{" "}
-                {isLoading ? <Circle className="animate-spin" /> : <Send />}
+                {isLoading ? (
+                  <LoaderCircle className="animate-spin" />
+                ) : (
+                  <Send />
+                )}
               </button>
             </form>
           </div>
