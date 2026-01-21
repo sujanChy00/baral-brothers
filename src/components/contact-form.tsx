@@ -15,6 +15,24 @@ const items = [
   "Preferred dates for site visit",
 ];
 
+const steps = [
+  {
+    step: "01",
+    title: "Inquiry Review",
+    desc: "Our technical team reviews your site details and photos within 24 hours.",
+  },
+  {
+    step: "02",
+    title: "Technical Consultation",
+    desc: "aim for a quick call or site visit to discuss complex engineering requirements.",
+  },
+  {
+    step: "03",
+    title: "Custom Proposal",
+    desc: "Receive a detailed quote, safety plan, and project timeline for your approval.",
+  },
+];
+
 export const ContactForm = () => {
   const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -103,23 +121,7 @@ export const ContactForm = () => {
                   What happens next?
                 </h4>
                 <div className="space-y-8">
-                  {[
-                    {
-                      step: "01",
-                      title: "Inquiry Review",
-                      desc: "Our technical team reviews your site details and photos within 24 hours.",
-                    },
-                    {
-                      step: "02",
-                      title: "Technical Consultation",
-                      desc: "aim for a quick call or site visit to discuss complex engineering requirements.",
-                    },
-                    {
-                      step: "03",
-                      title: "Custom Proposal",
-                      desc: "Receive a detailed quote, safety plan, and project timeline for your approval.",
-                    },
-                  ].map((item, idx) => (
+                  {steps.map((item, idx) => (
                     <div key={idx} className="flex gap-1">
                       <div className="flex flex-col items-center">
                         <span className="text-primary font-bold text-xs tracking-tighter bg-primary/10 size-8 rounded-full flex items-center justify-center shrink-0">
@@ -224,7 +226,7 @@ export const ContactForm = () => {
                       type="file"
                       multiple
                       id="image"
-                      accept="image/*"
+                      accept="image/jpeg, image/png, image/jpg"
                       className="sr-only"
                       onChange={handleFileChange}
                     />
