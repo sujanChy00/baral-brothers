@@ -12,7 +12,8 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Baral Brothers Engineering",
+        title:
+          "Baral Brothers Co., Ltd. | Facility Engineering & Support in Japan",
       },
     ],
   }),

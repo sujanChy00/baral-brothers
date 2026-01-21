@@ -10,16 +10,29 @@ export const HeroSection = () => {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-slate-900 ">
-            Engineering{" "}
-            <span className="text-primary italic font-serif">Excellence</span>{" "}
-            <br />
-            in Facility Management
+            Facility Engineering <br />
+            <span className="text-primary italic font-serif">&</span> <br />
+            Government Contractor Support in Japan
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-            Trusted facility management based in Saitama, Japan. Providing
-            comprehensive maintenance and operational support across the
-            country.
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
+            Reliable maintenance, repair, and installation support for U.S. base
+            facilities, government-related projects, and commercial clients
+            across Japan.
           </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="#contact"
+              className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
+            >
+              Request a Quote
+            </a>
+            <a
+              href="#contact"
+              className="bg-white text-slate-900 border border-slate-200 px-8 py-3 rounded-full font-bold hover:bg-slate-50 transition-all shadow-sm"
+            >
+              Schedule a Site Visit
+            </a>
+          </div>
         </div>
       </Container>
     </div>
