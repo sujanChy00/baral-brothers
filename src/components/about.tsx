@@ -1,87 +1,114 @@
-import {
-  BrushCleaning,
-  Building,
-  Cable,
-  Headphones,
-  Landmark,
-  Utensils,
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Container } from "./container";
 
-const items = [
-  {
-    title: "Building Maintenance",
-    description: "Expert repairs and care.",
-    icon: <Building className="text-primary" />,
-  },
-  {
-    title: "Government Facilities",
-    description: "Trusted public sector support.",
-    icon: <Landmark className="text-primary" />,
-  },
-  {
-    title: "HVAC & Electrical",
-    description: "Full technical systems.",
-    icon: <Cable className="text-primary" />,
-  },
-  {
-    title: "Janitorial Solutions",
-    description: "Immaculate environments.",
-    icon: <BrushCleaning className="text-primary" />,
-  },
-  {
-    title: "24/7 Response",
-    description: "Always here when needed.",
-    icon: <Headphones className="text-primary" />,
-  },
-  {
-    title: "Restaurants & Hotels",
-    description: "Professional hotel & restaurant care.",
-    icon: <Utensils className="text-primary" />,
-  },
+const industries = [
+  "U.S. Base Facilities & Government-Related Projects",
+  "Hotels, restaurants, and hospitality facilities",
+  "Commercial buildings and retail sites",
 ];
 
 export const About = () => {
   return (
-    <Container id="about" className="py-20">
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
+    <Container id="about" className="py-24">
+      <div className="flex flex-col lg:flex-row gap-16 items-start">
         <div className="w-full lg:w-1/2">
           <div className="relative">
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
-            <h2 className="text-3xl md:text-5xl font-display mb-8 font-bold">
-              Why Choose Baral Brothers Engineering?
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-slate-900">
+              Who We Are
             </h2>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              We believe that great facility management goes beyond just
-              maintenance — it creates productive, welcoming, and worry-free
-              environments where businesses can thrive.
+            <p className="text-slate-600 mb-6 leading-relaxed text-lg">
+              Baral Brothers Co., Ltd. is a Japan-based engineering and facility
+              support company providing reliable project coordination and
+              on-site services.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {items.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  {item.icon}
-                  <div>
-                    <h4 className="font-bold text-sm uppercase">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-slate-500">{item.description}</p>
-                  </div>
-                </div>
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 mb-8 italic text-slate-700 leading-relaxed relative">
+              <span className="absolute top-4 left-4 text-4xl text-primary/20 font-serif">
+                &ldquo;
+              </span>
+              Our mission is to provide reliable engineering and facility
+              support services with professionalism, safety, and clear
+              communication. We are committed to supporting our clients through
+              responsive coordination, quality workmanship, and timely delivery.
+              <br />
+              <br />
+              With experience in hospitality and facility operations in Japan,
+              we understand the importance of maintaining high standards while
+              minimizing disruption to daily operations. We value long-term
+              partnerships built on trust, integrity, and results.
+              <div className="mt-6 not-italic font-bold text-slate-900">
+                — Janak Baral, CEO
+              </div>
+            </div>
+
+            <h3 className="text-xl font-bold mb-4 text-slate-900">
+              Industries We Support
+            </h3>
+            <ul className="space-y-3 mb-8">
+              {industries.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-3 text-slate-600"
+                >
+                  <CheckCircle2 className="text-primary size-5 shrink-0" />
+                  <span>{item}</span>
+                </li>
               ))}
+            </ul>
+
+            <div className="pt-8 border-t border-slate-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-500">
+                <div>
+                  <span className="font-bold text-slate-900">
+                    Corporate Number:
+                  </span>{" "}
+                  T5030001157055
+                </div>
+                <div>
+                  <span className="font-bold text-slate-900">Location:</span>{" "}
+                  Saitama City, Japan
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
-          <img
-            alt="Engineer working"
-            className="rounded-2xl h-80 w-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZj8UFv2D9HsMzZZvicIeF7UhO8Uz2LypxzvP2AnGD0Jv31LCCj9B_nd_UWcJQ-n_ENfopckyVg830KvcsGCuMCMFH4uYYFyqnl5K1LPSpYMI75flocbqLI4fxc0Yzdu5m_Z1nC81u5_feJxP4wioyKZv71LI8PNxuwdoOSgD6WKtuGZnrE6k8veY-LlmxUjp4bvYhZI0Sn1GVP5OSWL3e0DvpaPTg9MRD45jNZ9OLgYAH5Z50QUX5jYCGcN03iEfBjBKLK8cTQA"
-          />
-          <img
-            alt="Construction detail"
-            className="rounded-2xl h-80 w-full object-cover mt-8"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtd5I7dOpi13xkEroTQiVtAvT56rPq0V-PA9cKPM1GExwBvoz-QKiv9Uh50dNpzngyREOtkuhCiWxC0iGZggKhItJL_URtiB8rpeS82Rw0-2a9pXfnRwhhi6za7GrC_DDtSjR7dJZuaKPwutea7XPj42NhQA4gtey4o3t79-B8U5FUClxQ-QI1hvSLHvR7qiIj6FU4nOkKELYqcVfwI4IAnbVufKo-6tGyyFazQLIHhn7F9Unw5E8999ZVDdueGPiY-7qeaBb77g"
-          />
+        <div className="w-full lg:w-1/2 space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              alt="Professional facility support"
+              className="rounded-2xl h-64 w-full object-cover shadow-lg"
+              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop"
+            />
+            <img
+              alt="Commercial maintenance"
+              className="rounded-2xl h-64 w-full object-cover shadow-lg mt-8"
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop"
+            />
+          </div>
+          <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
+            <h4 className="text-xl font-bold mb-4">Our Commitment</h4>
+            <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              We support clients with facility maintenance, repair work,
+              installation coordination, and procurement support, with strong
+              experience working in professional environments requiring strict
+              safety, schedule control, and communication.
+            </p>
+            <div className="flex gap-4">
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-primary font-bold text-2xl">Japan</span>
+                <span className="text-xs uppercase tracking-wider text-slate-400">
+                  Based
+                </span>
+              </div>
+              <div className="w-px h-10 bg-slate-700"></div>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-primary font-bold text-2xl">24/7</span>
+                <span className="text-xs uppercase tracking-wider text-slate-400">
+                  Support
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Container>

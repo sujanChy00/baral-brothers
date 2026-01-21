@@ -19,7 +19,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "We are a leading facility management company providing comprehensive services for buildings, government facilities, HVAC & Electrical, janitorial solutions, 24/7 response, restaurants & hotels, and more.",
+          "Baral Brothers Co., Ltd. provides reliable facility engineering, maintenance, installation support, and government contractor services across Japan. Specialist in U.S. Base facilities and professional project coordination.",
       },
     ],
     links: [
@@ -50,6 +50,7 @@ export const Route = createRootRoute({
   }),
 
   shellComponent: RootDocument,
+  notFoundComponent: () => <p>Not Found</p>,
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
