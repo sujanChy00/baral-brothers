@@ -89,7 +89,7 @@ export const ContactForm = () => {
                 Please include the following details in your message to help us
                 provide an accurate proposal:
               </p>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4 mb-12">
                 {items.map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <CheckCircle2 className="text-primary size-5 shrink-0" />
@@ -97,6 +97,50 @@ export const ContactForm = () => {
                   </li>
                 ))}
               </ul>
+
+              <div className="pt-12 border-t border-slate-200">
+                <h4 className="text-xl font-bold mb-8 text-slate-900">
+                  What happens next?
+                </h4>
+                <div className="space-y-8">
+                  {[
+                    {
+                      step: "01",
+                      title: "Inquiry Review",
+                      desc: "Our technical team reviews your site details and photos within 24 hours.",
+                    },
+                    {
+                      step: "02",
+                      title: "Technical Consultation",
+                      desc: "aim for a quick call or site visit to discuss complex engineering requirements.",
+                    },
+                    {
+                      step: "03",
+                      title: "Custom Proposal",
+                      desc: "Receive a detailed quote, safety plan, and project timeline for your approval.",
+                    },
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex gap-1">
+                      <div className="flex flex-col items-center">
+                        <span className="text-primary font-bold text-xs tracking-tighter bg-primary/10 size-8 rounded-full flex items-center justify-center shrink-0">
+                          {item.step}
+                        </span>
+                        {idx !== 2 && (
+                          <div className="w-px h-full bg-slate-200 my-2"></div>
+                        )}
+                      </div>
+                      <div className="pl-4 pb-2">
+                        <h5 className="font-bold text-slate-900 mb-1">
+                          {item.title}
+                        </h5>
+                        <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </section>
           </div>
 
