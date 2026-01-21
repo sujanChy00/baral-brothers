@@ -1,16 +1,16 @@
 const items = [
   {
-    title: "Access and Correction:",
+    title: "Access and Correction",
     description:
       "You have the right to access and update your personal information. If any information we hold is incorrect or incomplete, please let us know, and we will update it.",
   },
   {
-    title: "Deletion:",
+    title: "Deletion",
     description:
       "You may request that we delete your personal information. Please note that we may retain certain information to comply with legal obligations or for legitimate business purposes.",
   },
   {
-    title: "Opt-Out:",
+    title: "Opt-Out",
     description:
       " If you no longer wish to receive promotional emails from us, you can unsubscribe using the link provided in the email or by contacting us directly.",
   },

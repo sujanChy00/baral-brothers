@@ -2,19 +2,25 @@ import { Facebook } from "@/icons/facebook";
 import { Instagram } from "@/icons/instagram";
 import { Twitter } from "@/icons/twitter";
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, Send } from "lucide-react";
+import { Circle, Mail, Phone, Send } from "lucide-react";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Container } from "./container";
+import { sendEmail } from "@/utils";
+import { EmailFailureAlert } from "./email-failure-alert";
+import { EmailSuccessAlert } from "./email-success-alert";
 
 export const ContactForm = () => {
   const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean>(false);
 
   const onCaptchaChange = (token: string | null): void => {
     setCaptchaVerified(!!token);
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!captchaVerified) return;
     const formData = new FormData(e.currentTarget);
@@ -26,10 +32,21 @@ export const ContactForm = () => {
       newsletter: formData.get("newsletter") === "on",
     };
 
-    console.log(data);
+    setIsLoading(true);
 
+    try {
+      const res = await sendEmail({
+        data,
+      });
+      if (res.error) setErrorMessage(res.error.message);
+      if (res.data) setSuccess(true);
+    } catch (error) {
+      setErrorMessage("An error occurred while sending your message.");
+    }
+    setIsLoading(false);
     setCaptchaVerified(false);
   };
+
   return (
     <div className="bg-slate-50" id="contact">
       <Container className="py-20">
@@ -154,12 +171,16 @@ export const ContactForm = () => {
                   onChange={onCaptchaChange}
                 />
               )}
+              {errorMessage && <EmailFailureAlert message={errorMessage} />}
+              {success && <EmailSuccessAlert />}
+
               <button
-                disabled={!captchaVerified}
-                className="w-full bg-amber-600 disabled:opacity-50 text-white font-bold py-4 rounded-xl hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2"
+                disabled={!captchaVerified || isLoading}
+                className="w-full bg-amber-600 disabled:opacity-50 text-white font-bold py-4 rounded-xl hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 type="submit"
               >
-                <span>Send Message</span> <Send />
+                <span>Send Message</span>{" "}
+                {isLoading ? <Circle className="animate-spin" /> : <Send />}
               </button>
             </form>
           </div>
