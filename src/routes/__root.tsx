@@ -9,6 +9,9 @@ import appCss from "../styles.css?url";
 const description =
   "Baral Brothers Co., Ltd. provides reliable facility engineering, maintenance, installation support, and government contractor services across Japan. Specialist in U.S. Base facilities and professional project coordination.";
 
+const ogImage = "/og-image.png";
+const title = "Baral Brothers Co., Ltd.";
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -19,6 +22,7 @@ export const Route = createRootRoute({
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
+      { name: "title", content: title },
       {
         name: "description",
         content: description,
@@ -38,7 +42,7 @@ export const Route = createRootRoute({
       },
       {
         name: "twitter:title",
-        content: "Baral Brothers Co., Ltd.",
+        content: title,
       },
       {
         name: "twitter:description",
@@ -46,12 +50,12 @@ export const Route = createRootRoute({
       },
       {
         name: "twitter:image",
-        content: "/og-image.png",
+        content: ogImage,
       },
       { name: "og:type", content: "website" },
-      { name: "og:title", content: "Baral Brothers Co., Ltd." },
+      { name: "og:title", content: title },
       { name: "og:description", content: description },
-      { name: "og:image", content: "/og-image.png" },
+      { name: "og:image", content: ogImage },
       { name: "og:url", content: "https://baralbrothers.com" },
       { name: "og:image:width", content: "1200" },
       { name: "og:image:height", content: "630" },
