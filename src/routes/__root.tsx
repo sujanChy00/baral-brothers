@@ -6,6 +6,9 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import appCss from "../styles.css?url";
 
+const description =
+  "Baral Brothers Co., Ltd. provides reliable facility engineering, maintenance, installation support, and government contractor services across Japan. Specialist in U.S. Base facilities and professional project coordination.";
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -18,9 +21,40 @@ export const Route = createRootRoute({
       },
       {
         name: "description",
-        content:
-          "Baral Brothers Co., Ltd. provides reliable facility engineering, maintenance, installation support, and government contractor services across Japan. Specialist in U.S. Base facilities and professional project coordination.",
+        content: description,
       },
+      {
+        name: "keywords",
+        content:
+          "Baral Brothers Co., Ltd., facility engineering, maintenance, installation support, government contractor services, U.S. Base facilities, professional project coordination",
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:site",
+        content: "@baralbrothers",
+      },
+      {
+        name: "twitter:title",
+        content: "Baral Brothers Co., Ltd.",
+      },
+      {
+        name: "twitter:description",
+        content: description,
+      },
+      {
+        name: "twitter:image",
+        content: "/favicon-32x32.png",
+      },
+      { name: "og:type", content: "website" },
+      { name: "og:title", content: "Baral Brothers Co., Ltd." },
+      { name: "og:description", content: description },
+      { name: "og:image", content: "/favicon-32x32.png" },
+      { name: "og:url", content: "https://baralbrothers.com" },
+      { name: "og:image:width", content: "1200" },
+      { name: "og:image:height", content: "630" },
     ],
     links: [
       {
