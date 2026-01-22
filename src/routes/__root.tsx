@@ -7,10 +7,10 @@ import { Header } from "@/components/header";
 import appCss from "../styles.css?url";
 
 const description =
-  "Baral Brothers Co., Ltd. provides reliable facility engineering, maintenance, installation support, and government contractor services across Japan. Specialist in U.S. Base facilities and professional project coordination.";
+  "Baral Brothers 株式会社 provides reliable facility engineering, maintenance, installation support, and government contractor services across Japan. Specialist in U.S. Base facilities and professional project coordination.";
 
 const ogImage = "/og-image.png";
-const title = "Baral Brothers Co., Ltd.";
+const title = "Baral Brothers 株式会社";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -30,7 +30,7 @@ export const Route = createRootRoute({
       {
         name: "keywords",
         content:
-          "Baral Brothers Co., Ltd., facility engineering, maintenance, installation support, government contractor services, U.S. Base facilities, professional project coordination",
+          "Baral Brothers 株式会社, facility engineering, maintenance, installation support, government contractor services, U.S. Base facilities, professional project coordination",
       },
       {
         name: "twitter:card",
