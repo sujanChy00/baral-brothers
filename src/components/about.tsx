@@ -13,7 +13,7 @@ export const About = () => {
       <div className="flex flex-col lg:flex-row gap-16 items-start">
         <div className="w-full lg:w-1/2">
           <div className="relative">
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl" />
             <h2 className="text-3xl md:text-5xl font-bold mb-8 text-slate-900">
               Who We Are
             </h2>
