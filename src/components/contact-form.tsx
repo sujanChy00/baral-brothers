@@ -291,7 +291,7 @@ export const ContactForm = () => {
 
               <button
                 disabled={!captchaVerified || isLoading}
-                className="w-full bg-amber-600 disabled:opacity-50 text-white font-bold py-4 rounded-xl hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full bg-amber-600 disabled:opacity-50 text-white font-bold py-4 rounded-xl hover:bg-opacity-90 shadow-lg shadow-primary/20 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 cursor-pointer"
                 type="submit"
               >
                 <span>Send Message</span>{" "}

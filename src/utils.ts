@@ -3,6 +3,20 @@ import { clsx, type ClassValue } from "clsx";
 import { Resend } from "resend";
 import { twMerge } from "tailwind-merge";
 
+
+interface EmailData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  date: string;
+  newsletter: boolean;
+  attachments?: {
+    filename: string;
+    content: string;
+  }[];
+}
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -21,18 +35,7 @@ const formatDate = (dateStr: string) => {
 
 export const sendEmail = createServerFn({ method: "POST" })
   .inputValidator(
-    (data: {
-      name: string;
-      email: string;
-      subject: string;
-      message: string;
-      date: string;
-      newsletter: boolean;
-      attachments?: {
-        filename: string;
-        content: string;
-      }[];
-    }) => data,
+    (data: EmailData) => data,
   )
   .handler(async ({ data }) => {
     try {
