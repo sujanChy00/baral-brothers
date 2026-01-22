@@ -77,12 +77,12 @@ export const About = () => {
             <img
               alt="Professional facility support"
               className="rounded-2xl h-64 w-full object-cover shadow-lg"
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop"
+              src="/coding.avif"
             />
             <img
               alt="Commercial maintenance"
               className="rounded-2xl h-64 w-full object-cover shadow-lg mt-8"
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop"
+              src="/engineers.avif"
             />
           </div>
           <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
