@@ -46,7 +46,7 @@ export const sendEmail = createServerFn({ method: "POST" })
 
       const response = await resend.emails.send({
         to: process.env.EMAIL as string,
-        from: "onboarding@resend.dev",
+        from: data.email,
         subject: data.subject,
         text: `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\nPreferred Site Visit Date: ${formatDate(data.date)}\nMessage: ${data.message}\nNewsletter: ${data.newsletter ? "YES" : "NO"}`,
         attachments: data.attachments
