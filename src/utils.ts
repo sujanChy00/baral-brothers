@@ -3,7 +3,6 @@ import { clsx, type ClassValue } from "clsx";
 import { Resend } from "resend";
 import { twMerge } from "tailwind-merge";
 
-
 interface EmailData {
   name: string;
   email: string;
@@ -34,9 +33,7 @@ const formatDate = (dateStr: string) => {
 };
 
 export const sendEmail = createServerFn({ method: "POST" })
-  .inputValidator(
-    (data: EmailData) => data,
-  )
+  .inputValidator((data: EmailData) => data)
   .handler(async ({ data }) => {
     try {
       if (!process.env.RESEND_API_KEY) {
@@ -46,7 +43,8 @@ export const sendEmail = createServerFn({ method: "POST" })
 
       const response = await resend.emails.send({
         to: process.env.EMAIL as string,
-        from: data.email,
+        from: "support@sierrajapan.com",
+        replyTo: data.email,
         subject: data.subject,
         text: `Name: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\nPreferred Site Visit Date: ${formatDate(data.date)}\nMessage: ${data.message}\nNewsletter: ${data.newsletter ? "YES" : "NO"}`,
         attachments: data.attachments
